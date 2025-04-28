@@ -56,10 +56,10 @@ public class Library extends Building implements LibraryRequirements {
           this.collection.replace(title, false);
           System.out.println(title+"has been succesfully checked out"); 
         } else{
-          System.out.println("Sorry"+title+"is already checked out");
-      }
+         throw new RuntimeException("Sorry"+title+"is already checked out");
+      } //fixed the exception here
       }else{
-        System.out.println("Sorry"+title+"is not in our library");
+        throw new RuntimeException("Sorry"+title+"is not in our library");
     }
   }
 
@@ -76,7 +76,7 @@ public class Library extends Building implements LibraryRequirements {
           System.out.println("Sorry,"+title+"is already in our library");
       }
       }else{
-        System.out.println("Sorry"+title+"is not part of our collection");
+        throw new RuntimeException("Sorry"+title+"is not part of our collection");//exception for a book that doesn't belong to the library
       }
     }
 

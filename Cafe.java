@@ -20,14 +20,22 @@ public class Cafe extends Building implements CafeRequirements {
 
     /**
      * sell a cup of coffe, but the material in inventory will be reduced as well
-     * @param size,nSugarPackets,nCreams the materials you need to use to make a coffee
+     * @param size,
+     * @param nSugarPackets
+     * @param nCreams 
      */
     public void sellCoffee(int size, int nSugarPackets, int nCreams){
+        //check if we have enough stock before we sell coffe
+        if (this.nCoffeeOunces > size && this.nSugarPackets > nSugarPackets && this.nCreams > nCreams && this.nCups > 1){
         this.nCoffeeOunces -= size;
         this.nSugarPackets -= nSugarPackets;
         this.nCreams -= nCreams;
         this.nCups -= 1;
         System.out.println("You have "+this.nCoffeeOunces +" Ounces remaining, "+this.nSugarPackets+" packets sugar remaining, "+this.nCreams+" remaining sugar, "+this.nCups+" Cups remaining in inventory.");
+        }else{
+            //if the stock is not enough, throw an exception so that the Cafe would restock
+            throw new RuntimeException("Sorry. you don't have enough stock. Please sell again.");
+        }
     }
 
     /**
@@ -47,7 +55,7 @@ public class Cafe extends Building implements CafeRequirements {
     
     public static void main(String[] args) {
         Cafe campuscafe = new Cafe("Campus cafe", "campus center first floor", 1);
-        campuscafe.sellCoffee(3, 2, 3);
+        campuscafe.sellCoffee(12, 14, 8);
         campuscafe.restock(5, 5, 10, 100);
     }
     

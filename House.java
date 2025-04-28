@@ -4,15 +4,19 @@ import java.util.ArrayList;
 
 public class House extends Building implements HouseRequirements{
 
+
+//Please look at my reflection!!!!! Thank you!!!
+
+
    //Attributes
    private ArrayList<Student> residents; // The <Student> tells Java what kind of data we plan to store IN the ArrayList
    private boolean hasDiningRoom;
 
    //Consturctor
-  public House(String name, String address, int nFloors) {
+  public House(String name, String address, int nFloors, boolean hasDiningRoom) {
     super(name, address, nFloors);
     this.residents = new ArrayList<Student>();
-    this.hasDiningRoom = true;
+    this.hasDiningRoom = hasDiningRoom;// add hasDiningRoom as a parameter so that it will work for house without diningroom as well
     System.out.println("You have built a house: 🏠");
   }
   /**
