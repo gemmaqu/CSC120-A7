@@ -9,6 +9,12 @@ public class Cafe extends Building implements CafeRequirements {
     private int nCups; // The number of cups remaining in inventory
 
     //constructor
+    /**
+     * @param name
+     * @param address
+     * @param nFloors
+     * constructor for the Cafe class
+     */
     public Cafe(String name, String address, int nFloors) {
         super(name, address, nFloors);
         this.nCoffeeOunces = 10;
